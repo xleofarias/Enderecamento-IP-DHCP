@@ -26,3 +26,20 @@ Quem irá atuar como nosso servidor DHCP neste exemplo, será o roteador da Cisc
    - Agora iremos criar a nossa rede, com o comando network, ainda dentro da configuração do DHCP. Crie um IP diferente da porta gateway.
    - Agora precisamos sair da configuração de rede e ir para configuração da porta lá FastEthernet 0/0 para inserir o IP da default-route a do gateway.
    - primeiro o comando **"exit"** depois o **"interface FastEthernet 0/0"** e agora iremos inserir o nosso ip da gateway.
+   - Para inserir o nosso ip da gateway, utilize o comando ip address [ip aqui] junto com a [mascarda de rede].
+   - após isso o dhcp estará configurado.
+
+3. Passo - Configurando o Servidor WEB
+   - Para configurar o servidor WEB, colocaremos mais um switch ligado ao roteador, via cabo direto.
+   - E o servidor WEB conectador ao Switch, via cabo direto.
+   - Agora precisamos habilitar a porta FastEthernet 0/1.
+   - Após habilitar a porta iremos inserir um um ip estático para essa porta. ip address [ip] [máscara de rede].
+   - Precisamos configurar o Servidor WEB, colocaremos um ipv4 para ele e a default gateway que criamos anteriormente, para porta FastEthernet 0/1.
+   - Agora só acessar a pagina com o ip do servidor em algum dos computadores que temos.
+
+4. Passo - Configurando o Servidor DNS
+   - Criamos mais um Servidor que será ligado também ao Switch que tem o servidor Web.
+   - Iremos configurar agora o Servidor DNS, com um ipv4, máscara de rede e a default gateway para ter saida para internet. Lembre-se que esse ip é aquele da porta FastEthernet 0/1.
+   - Após iremos acessar o Serviços do Servidor DNS e iremos ativar o DNS, colocaremos um nome para esse site o ip que será o do Servidor WEB.
+   - Ainda precisamos configurar o DNS no roteador já que ele não tem a inteligencia para saber que estamos agora com um servidor DNS ativo.
+   - Para isso acessaremos o roteador,
